@@ -6,13 +6,13 @@
 
   $: todosData = JSON.stringify($todos, null, 2);
 
+  fetchTodos();
+
   async function fetchTodos() {
     const req = await fetch($env.APP_API_URL + "/todos");
     const items = await req.json();
     todos.update(todos => [...items]);
   }
-
-  fetchTodos();
 
   async function handleHeaderClick() {
     const req = await fetch($env.APP_API_URL + "/dummy-todos");
@@ -39,7 +39,11 @@
     todo = { ...todo, checked };
     const req = await fetch(`${$env.APP_API_URL}/todos/${todoId}`, {
       method: "put",
-      body: JSON.stringify(todo)
+      body: JSON.stringify(todo),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
     });
     await fetchTodos();
   }
@@ -51,7 +55,6 @@
     padding: 1em;
     margin: 0 auto;
   }
-  pre,
   .todo-list {
     text-align: left;
     max-width: 600px;
@@ -61,7 +64,6 @@
 
 <main>
   <Title onClick={handleHeaderClick}>Hello todo!</Title>
-  <!--<pre>{todosData}</pre>-->
   <div class="todo-list">
     {#each $todos as todo}
       <TodoItem {todo} onChange={checked => onChangeTodo(todo.id, checked)} />
