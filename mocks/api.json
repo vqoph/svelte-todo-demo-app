@@ -1,0 +1,46 @@
+{
+  "dummy-todos": [
+    {
+      "text": "do random stuffs"
+    },
+    {
+      "text": "hunt unicorns"
+    },
+    {
+      "text": "speak in reversed minion language"
+    },
+    {
+      "text": "speak in minion language"
+    }
+  ],
+  "todos": [
+    {
+      "text": "hunt unicorns",
+      "id": 1
+    },
+    {
+      "text": "hunt unicorns",
+      "id": 2
+    },
+    {
+      "text": "hunt unicorns",
+      "id": 3
+    },
+    {
+      "text": "speak in minion language",
+      "id": 4
+    },
+    {
+      "text": "speak in reversed minion language",
+      "id": 5
+    },
+    {
+      "text": "Lorem ipsum",
+      "id": 6
+    },
+    {
+      "text": "dolor",
+      "id": 7
+    }
+  ]
+}
