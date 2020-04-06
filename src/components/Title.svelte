@@ -1,5 +1,6 @@
 <script>
-  export let onClick = () => {};
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
 </script>
 
 <style>
@@ -13,6 +14,6 @@
   }
 </style>
 
-<h1 on:click={onClick}>
+<h1 on:click={() => dispatch('click')}>
   <slot />
 </h1>
