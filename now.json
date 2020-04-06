@@ -1,0 +1,11 @@
+{
+  "env": {
+    "APP_API_URL": "/api"
+  },
+  "build": {
+    "env": {
+      "APP_API_URL": "/api"
+    }
+  },
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api/index.js" }]
+}
