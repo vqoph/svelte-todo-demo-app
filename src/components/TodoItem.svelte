@@ -1,7 +1,7 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
   export let todo = {};
-  export let onChange = checked => {};
-  export let checked = false;
 </script>
 
 <style>
@@ -14,7 +14,10 @@
 
 <li class="todo-item">
   <label>
-    <input type="checkbox" bind:checked on:change={onChange(checked)} />
+    <input
+      type="checkbox"
+      bind:checked={todo.checked}
+      on:change={() => dispatch('change', todo.checked)} />
     {todo.text}
   </label>
 </li>

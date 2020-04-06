@@ -1,9 +1,9 @@
 <script>
-  export let onSubmit;
+  import { createEventDispatcher } from "svelte";
   let todoText;
-
+  const dispatch = createEventDispatcher();
   function submit() {
-    onSubmit({ text: todoText });
+    dispatch("submit", { text: todoText });
     todoText = "";
   }
 </script>
