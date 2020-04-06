@@ -34,6 +34,10 @@ export default function createTodos() {
       });
     },
 
+    async removeItem(todoId) {
+      await xhr(`${APP_API_URL}/todos/${todoId}`, { method: 'delete' });
+    },
+
     async getExamples() {
       const req = await fetch(APP_API_URL + '/dummy-todos');
       return await req.json();
