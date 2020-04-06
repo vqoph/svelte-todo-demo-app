@@ -1,6 +1,5 @@
 <script>
   import { todos, env } from "./store";
-
   import { TodoItem, AddTodo, Title, Spinner } from "./components";
 
   $: todosData = JSON.stringify($todos, null, 2);
@@ -28,6 +27,11 @@
 
   async function onChangeTodo(todoId, checked) {
     await todos.updateItem(todoId, checked);
+    await fetchTodos();
+  }
+
+  async function onRemoveTodo(todoId) {
+    await todos.removeItem(todoId);
     await fetchTodos();
   }
 </script>
@@ -60,7 +64,8 @@
     {#each $todos as todo}
       <TodoItem
         {todo}
-        on:change={({ detail }) => onChangeTodo(todo.id, detail)} />
+        on:change={({ detail }) => onChangeTodo(todo.id, detail)}
+        on:remove={() => onRemoveTodo(todo.id)} />
     {/each}
   </div>
   <AddTodo on:submit={({ detail }) => onSubmitTodo(detail)} />

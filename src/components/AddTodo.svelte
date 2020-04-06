@@ -12,6 +12,7 @@
   .add-todo {
     width: 100%;
     padding: 1rem;
+    margin-top: 2rem;
   }
 
   .add-todo > form {
