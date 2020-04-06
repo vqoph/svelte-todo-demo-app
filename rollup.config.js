@@ -7,7 +7,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 
 const envVars = Object.keys(process.env)
-  .filter((key) => key.includes('APP_'))
+  .filter((key) => key.includes('APP_') || key === 'NODE_ENV')
   .reduce((acc, key) => ({ ...acc, [key]: process.env[key] }), {});
 
 const production = !process.env.ROLLUP_WATCH;
